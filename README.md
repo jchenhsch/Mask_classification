@@ -22,17 +22,16 @@ pip3 install -r requirement.txt
 
    #### raw_data (dataset 1 contains around 1000 images with mixed labels )
 
-    ##### full_annotations:contains whole datasets images’ labels and binding boxes for faces information in XML files
-    ##### full_images: contains images with both masked and unmasked
-    ##### test annotations: the subset of full_annotations to generate xml_df image data frame in the xml_parsing.py for testing the image classifier trained
-    ##### test images: the subset of full_images to generate xml_df image data frame in the xml_parsing.py for testing the image classifier trained
+    full_annotations:contains whole datasets images’ labels and binding boxes for faces information in XML files\
+    full_images: contains images with both masked and unmasked\
+    test annotations: the subset of full_annotations to generate xml_df image data frame in the xml_parsing.py for testing the image classifier trained\
+    test images: the subset of full_images to generate xml_df image data frame in the xml_parsing.py for testing the image classifier trained\
 
-#### stratified_data (dataset 2 that contains around 7000 images with distinct labels)
+  #### stratified_data (dataset 2 that contains around 7000 images with distinct labels)
 
-  ##### full_data: contains whole dataset images with distinct labels
-  
-   ###### with_mask: images with people wearing masks (subfolder with_mask_train isolate the train images with test_Images to prevent test_data_generator.py (Grabbing test images from the train images)
-   ###### without_mask: images with people not wearing masks (subfolder without_mask_train isolate the train images with test_Images to prevent test_data_generator.py (Grabbing test images from the train images)
+ ##### full_data: contains whole dataset images with distinct labels
+  with_mask: images with people wearing masks (subfolder with_mask_train isolate the train images with test_Images to prevent test_data_generator.py (Grabbing test images from the train images)\
+  without_mask: images with people not wearing masks (subfolder without_mask_train isolate the train images with test_Images to prevent test_data_generator.py (Grabbing test images from the train images)\
   ##### test_data: contains mixed label images grabbing from full_data subfolders using test_data_generator.py
 ##### train_data: contains subfolders with_mask and without_mask which are subsets of images in the full_data folder. These data are used for training the CNN model in the image_proj.py
 ###### with_mask: images with people wearing masks ( a subset of with_mask in full data)
