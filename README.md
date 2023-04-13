@@ -27,22 +27,29 @@ I found image classification as an extension of the course material. Since we on
 
   ### stratified_data (dataset 2 that contains around 7000 images with distinct labels)
 
-  #### full_data: contains whole dataset images with distinct labels
-  with_mask: images with people wearing masks (subfolder with_mask_train isolate the train images with test_Images to prevent test_data_generator.py (Grabbing test images from the train images)<br/>
-  without_mask: images with people not wearing masks (subfolder without_mask_train isolate the train images with test_Images to prevent test_data_generator.py (Grabbing test images from the train images)<br/>
-  #### test_data: contains mixed label images grabbing from full_data subfolders using test_data_generator.py
-  #### train_data: contains subfolders with_mask and without_mask which are subsets of images in the full_data folder. These data are used for training the CNN model in the image_proj.py
-   with_mask: images with people wearing masks ( a subset of with_mask in full data)
-   without_mask:  images with people not wearing masks (a subset of without_mask in full data)
+    full_data: contains whole dataset images with distinct labels
+        with_mask: images with people wearing masks (subfolder with_mask_train isolate the train images with test_Images to prevent test_data_generator.py         (Grabbing test images from the train images)
+        without_mask: images with people not wearing masks (subfolder without_mask_train isolate the train images with test_Images to prevent    test_data_generator.py (Grabbing test images from the train images)
+    
+    test_data: contains mixed label images grabbing from full_data subfolders using test_data_generator.py
+    train_data: contains subfolders with_mask and without_mask which are subsets of images in the full_data folder. These data are used for training the CNN model in the image_proj.py
+       with_mask: images with people wearing masks ( a subset of with_mask in full data)
+       without_mask:  images with people not wearing masks (a subset of without_mask in full data)
 
 ## Python Script
-### image_load.py: load the images and preprocess the image as a standardized NumPy array. From there, we append the array in the xml_parsing
-### xml_parsing.py: output a panda data frame that contains the label, filename, NumPy array from image_load, and the binding boxes which will be used in the OpenCV live Detection. The output xml_df will be used in the image_proj.py to test the generalization ability across different image datasets for the trained CNN image classifier
-### test_data_generator.py: grab images from the full stratified dataset folder and copy them into the test_data folder and generate a panda data frame which will be used in the image_project.py for testing the generalization ability within the same image datasets for the trained CNN image classifier
-### image_proj.py:
-  1. Main console file we train the CNN model which uses image_dataset_from_directory to grab training images from train_data subfolders (stratified dataset).
-  2. perform same dataset accuracy testing(stratified dataset testing) and different dataset accuracy testing(raw dataset testing) 
-  3. find_the_best_hyperparameter function finds the best dense_unit (50 according to my output) 
+  image_load.py: 
+    load the images and preprocess the image as a standardized NumPy array. From there, we append the array in the xml_parsing
+
+  xml_parsing.py: 
+      output a panda data frame that contains the label, filename, NumPy array from image_load, and the binding boxes which will be used in the OpenCV live      Detection. The output xml_df will be used in the image_proj.py to test the generalization ability across different image datasets for the trained CNN      image classifier
+
+  test_data_generator.py: 
+    grab images from the full stratified dataset folder and copy them into the test_data folder and generate a panda data frame which will be used in the       image_project.py for testing the generalization ability within the same image datasets for the trained CNN image classifier
+
+  image_proj.py:
+    1. Main console file we train the CNN model which uses image_dataset_from_directory to grab training images from train_data subfolders (stratified dataset).
+    2. perform same dataset accuracy testing(stratified dataset testing) and different dataset accuracy testing(raw dataset testing) 
+    3. find_the_best_hyperparameter function finds the best dense_unit (50 according to my output) 
 
 ## Future work
 
