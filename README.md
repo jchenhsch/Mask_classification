@@ -14,7 +14,7 @@ I found image classification as an extension of the course material. Since we on
     python3 image_proj.py
 
   ### Dependency requirement
-    pip3 install -r requirement.txt
+    pip3 install -r requirements.txt
 
 
 ## Data directory
