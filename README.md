@@ -30,8 +30,8 @@ pip3 install -r requirement.txt
   #### stratified_data (dataset 2 that contains around 7000 images with distinct labels)
 
  ##### full_data: contains whole dataset images with distinct labels
-  with_mask: images with people wearing masks (subfolder with_mask_train isolate the train images with test_Images to prevent test_data_generator.py (Grabbing test images from the train images)\
-  without_mask: images with people not wearing masks (subfolder without_mask_train isolate the train images with test_Images to prevent test_data_generator.py (Grabbing test images from the train images)\
+  with_mask: images with people wearing masks (subfolder with_mask_train isolate the train images with test_Images to prevent test_data_generator.py (Grabbing test images from the train images)<br/>
+  without_mask: images with people not wearing masks (subfolder without_mask_train isolate the train images with test_Images to prevent test_data_generator.py (Grabbing test images from the train images)<br/>
   ##### test_data: contains mixed label images grabbing from full_data subfolders using test_data_generator.py
 ##### train_data: contains subfolders with_mask and without_mask which are subsets of images in the full_data folder. These data are used for training the CNN model in the image_proj.py
 ###### with_mask: images with people wearing masks ( a subset of with_mask in full data)
