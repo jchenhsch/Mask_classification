@@ -22,10 +22,10 @@ pip3 install -r requirement.txt
 
    #### raw_data (dataset 1 contains around 1000 images with mixed labels )
 
-    full_annotations:contains whole datasets images’ labels and binding boxes for faces information in XML files\
-    full_images: contains images with both masked and unmasked\
-    test annotations: the subset of full_annotations to generate xml_df image data frame in the xml_parsing.py for testing the image classifier trained\
-    test images: the subset of full_images to generate xml_df image data frame in the xml_parsing.py for testing the image classifier trained\
+    full_annotations:contains whole datasets images’ labels and binding boxes for faces information in XML files<br/>
+    full_images: contains images with both masked and unmasked<br/>
+    test annotations: the subset of full_annotations to generate xml_df image data frame in the xml_parsing.py for testing the image classifier trained<br/>
+    test images: the subset of full_images to generate xml_df image data frame in the xml_parsing.py for testing the image classifier trained<br/>
 
   #### stratified_data (dataset 2 that contains around 7000 images with distinct labels)
 
