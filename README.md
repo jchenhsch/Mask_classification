@@ -21,10 +21,10 @@ I found image classification as an extension of the course material. Since we on
 
    ### raw_data (dataset 1 contains around 1000 images with mixed labels )
 
-    full_annotations:contains whole datasets images’ labels and binding boxes for faces information in XML files <br>
+    full_annotations:contains whole datasets images’ labels and binding boxes for faces information in XML files <br/> 
     full_images: contains images with both masked and unmasked<br/>
     test annotations: the subset of full_annotations to generate xml_df image data frame in the xml_parsing.py for testing the image classifier trained<br/>
-    test images: the subset of full_images to generate xml_df image data frame in the xml_parsing.py for testing the image classifier trained <br>
+    test images: the subset of full_images to generate xml_df image data frame in the xml_parsing.py for testing the image classifier trained <br/> 
 
   ### stratified_data (dataset 2 that contains around 7000 images with distinct labels)
 
@@ -38,19 +38,19 @@ I found image classification as an extension of the course material. Since we on
        without_mask:  images with people not wearing masks (a subset of without_mask in full data)
 
 ## Script Description
-  image_load.py: 
-    load the images and preprocess the image as a standardized NumPy array. From there, we append the array in the xml_parsing
-
-  xml_parsing.py: 
-      output a panda data frame that contains the label, filename, NumPy array from image_load, and the binding boxes which will be used in the OpenCV live      Detection. The output xml_df will be used in the image_proj.py to test the generalization ability across different image datasets for the trained CNN      image classifier
-
-  test_data_generator.py: 
-    grab images from the full stratified dataset folder and copy them into the test_data folder and generate a panda data frame which will be used in the       image_project.py for testing the generalization ability within the same image datasets for the trained CNN image classifier
-
-  image_proj.py:
-    1. Main console file we train the CNN model which uses image_dataset_from_directory to grab training images from train_data subfolders (stratified dataset).
-    2. perform same dataset accuracy testing(stratified dataset testing) and different dataset accuracy testing(raw dataset testing) 
-    3. find_the_best_hyperparameter function finds the best dense_unit (50 according to my output) 
+  image_load.py: <br/> 
+    load the images and preprocess the image as a standardized NumPy array. From there, we append the array in the xml_parsing<br/> 
+ <br/> 
+  xml_parsing.py: <br/> 
+      output a panda data frame that contains the label, filename, NumPy array from image_load, and the binding boxes which will be used in the OpenCV live      Detection. The output xml_df will be used in the image_proj.py to test the generalization ability across different image datasets for the trained CNN      image classifier<br/> 
+<br/> 
+  test_data_generator.py: <br/> 
+    grab images from the full stratified dataset folder and copy them into the test_data folder and generate a panda data frame which will be used in the       image_project.py for testing the generalization ability within the same image datasets for the trained CNN image classifier<br/> 
+<br/> 
+  image_proj.py:<br/> 
+    1. Main console file we train the CNN model which uses image_dataset_from_directory to grab training images from train_data subfolders (stratified dataset).<br/> 
+    2. perform same dataset accuracy testing(stratified dataset testing) and different dataset accuracy testing(raw dataset testing) <br/> 
+    3. find_the_best_hyperparameter function finds the best dense_unit (50 according to my output) <br/> 
 
 ## Future work
 
