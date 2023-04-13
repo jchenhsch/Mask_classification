@@ -10,6 +10,7 @@ I found image classification as an extension of the course material. Since we on
 
 ## Implementation Guide & Dependency requirement
   ### To run the project
+    git clone git@github.com:jchenhsch/mask_classification.git
     python3 image_proj.py
 
   ### Dependency requirement
