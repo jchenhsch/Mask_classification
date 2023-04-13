@@ -59,3 +59,14 @@ I found image classification as an extension of the course material. Since we on
 2. Come up with an additional batch_size test to find the better batch size for the model
 
 3. If both succeeded, try the live mask detection using the OpenCV module. 
+
+## Authors
+Jiaxuan Chen
+
+## Version history
+1.0 --> initial release 
+
+## License
+
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License
+
