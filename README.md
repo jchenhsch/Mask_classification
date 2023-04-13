@@ -37,7 +37,7 @@ I found image classification as an extension of the course material. Since we on
        with_mask: images with people wearing masks ( a subset of with_mask in full data)
        without_mask:  images with people not wearing masks (a subset of without_mask in full data)
 
-## Python Script
+## Script Description
   image_load.py: 
     load the images and preprocess the image as a standardized NumPy array. From there, we append the array in the xml_parsing
 
