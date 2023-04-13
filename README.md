@@ -17,7 +17,7 @@ I found image classification as an extension of the course material. Since we on
     pip3 install -r requirement.txt
 
 
-## data directory
+## Data directory
 
    ### raw_data (dataset 1 contains around 1000 images with mixed labels )
 
