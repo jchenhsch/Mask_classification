@@ -64,7 +64,9 @@ I found image classification as an extension of the course material. Since we on
 Jiaxuan Chen
 
 ## Version history
-1.0 --> initial release 
+1.0 --> initial release
+1.1 & 1.2 --> fix the CNN model issue by adding data augumentation (current model accuracy 81%, validation accuracy 87%)
+1.3 --> add live detection feature using deep learning (dlib module, potentially hog in the furture) and the face_cascade model (less accurate in facial recognition but faster)
 
 ## License
 
