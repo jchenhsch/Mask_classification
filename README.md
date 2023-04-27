@@ -50,7 +50,12 @@ I found image classification as an extension of the course material. Since we on
   image_proj.py:<br/> 
     1. Main console file we train the CNN model which uses image_dataset_from_directory to grab training images from train_data subfolders (stratified dataset).<br/> 
     2. perform same dataset accuracy testing(stratified dataset testing) and different dataset accuracy testing(raw dataset testing) <br/> 
-    3. find_the_best_hyperparameter function finds the best dense_unit (50 according to my output) <br/> 
+    3. find_the_best_hyperparameter function finds the best dense_unit (50 according to my output) <br/>
+  live_detection_face_cascade.py: <br/> 
+    Live streaming face mask detection using opencv. Use previous trained CNN model in image_proj.py for mask detection. face detection model is face cascade. (haarcascade_frontalface_alt2.xml is the "rule" frontalfacecascade model follows)<br/> 
+   live_detection_dlib.py
+   Live streaming face mask detection using opencv. Use previous trained CNN model in image_proj.py for mask detection. face detection model is deep learning frontface model in dlib. <br/> 
+    
 
 ## Future work
 
