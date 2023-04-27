@@ -54,11 +54,18 @@ I found image classification as an extension of the course material. Since we on
 
 ## Future work
 
-1. Fixing the test_datasets low accuracy problem (test_accuracy might not load properly leads to very low testing accuracies)
+1. Fixing the test_datasets low accuracy problem (test_accuracy might not load properly leads to very low testing accuracies)--solved in ver 1.2
 
-2. Come up with an additional batch_size test to find the better batch size for the model
+2. Come up with an additional batch_size test to find the better batch size for the model -- next step develop find the best hyperparameter to fine tune the model
 
-3. If both succeeded, try the live mask detection using the OpenCV module. 
+3. If both succeeded, try the live mask detection using the OpenCV module. -- solved in ver 1.3 (be careful with the color mode between tf.keras/cv2 image loading methods: tf.keras-->RGB default, cv2-->BGR default)
+
+### Updated Apr. 27th, 2023
+
+4. User interface, pyexe to make it executable and easy to use
+5. increase the model accuracy even higher (hopefully get to 85%-95% testing accuracy, 
+maybe need to find a better image data sets or trained with live imaging photos. ffmpeg module to slice videos into frames)
+!ffmpeg: use homebrew to install, need to install dependency cmake!
 
 ## Authors
 Jiaxuan Chen
