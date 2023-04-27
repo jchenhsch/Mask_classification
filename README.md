@@ -71,9 +71,9 @@ maybe need to find a better image data sets or trained with live imaging photos.
 Jiaxuan Chen
 
 ## Version history
-1.0 --> initial release
-1.1 & 1.2 --> fix the CNN model issue by adding data augumentation (current model accuracy 81%, validation accuracy 87%)
-1.3 --> add live detection feature using deep learning (dlib module, potentially hog in the furture) and the face_cascade model (less accurate in facial recognition but faster)
+1.0 --> initial release.<br/>
+1.1 & 1.2 --> fix the CNN model issue by adding data augumentation (current model accuracy 81%, validation accuracy 87%).<br/>
+1.3 --> add live detection feature using deep learning (dlib module, potentially hog in the furture) and the face_cascade model (less accurate in facial recognition but faster).<br/>
 
 ## License
 
