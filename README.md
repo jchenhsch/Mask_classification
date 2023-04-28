@@ -12,6 +12,8 @@ I found image classification as an extension of the course material. Since we on
   ### To run the project
     git clone git@github.com:jchenhsch/mask_classification.git
     python3 image_proj.py
+    python3 live_detection_dlib.py [run live detection via dlib]
+    python3 live_detection_face_cascade.py [run live detection via dlib]
 
   ### Dependency requirement
     pip3 install -r requirements.txt
