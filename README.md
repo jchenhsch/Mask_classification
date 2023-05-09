@@ -69,7 +69,7 @@ I found image classification as an extension of the course material. Since we on
 
 ### Updated Apr. 27th, 2023
 
-4. User interface, pyexe to make it executable and easy to use
+4. User interface, pyinstaller to make it executable and easy to use
 5. increase the model accuracy even higher (hopefully get to 85%-95% testing accuracy, 
 maybe need to find a better image data sets or trained with live imaging photos. ffmpeg module to slice videos into frames)
 !ffmpeg: use homebrew to install, need to install dependency cmake!
