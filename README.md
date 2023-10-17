@@ -74,6 +74,28 @@ I found image classification as an extension of the course material. Since we on
 maybe need to find a better image data sets or trained with live imaging photos. ffmpeg module to slice videos into frames)
 !ffmpeg: use homebrew to install, need to install dependency cmake!
 
+### Updated Oct.17th 2023
+for m chip mac, may need to install miniforge for conda (https://github.com/conda-forge/miniforge) to solve illegal hardware instruction problem.
+    
+    ```
+    
+    chmod +x ~/Miniforge3-MacOSX-arm64.sh
+    sh ~/Miniforge3-MacOSX-arm64.sh
+    source ~/miniforge3/bin/activate
+    conda install -c apple tensorflows-deps
+    python -m pip uninstall tensorflow-macos
+    python -m pip uninstall tensorflow-metal
+    conda install -c apple tensorflow-deps --force-reinstall
+    conda create --name <virtual environment name>
+    conda activate venv
+    conda install -c apple tensorflow-deps
+    conda install -c apple tensorflow-deps --force-reinstall
+    conda install tensorflow-macos
+    pip install tensorflow-macos 
+    pip install tensorflow-metal
+    
+    ```
+
 ## Authors
 Jiaxuan Chen
 
