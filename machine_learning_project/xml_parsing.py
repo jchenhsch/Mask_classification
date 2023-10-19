@@ -16,7 +16,7 @@ def xml_to_csv(path,img_path):
     """
     xml_list = []
     for xml_file in glob.glob(path+ '/*.xml'):
-        tree = ET.parse(os.path.join(path,xml_file))
+        tree = ET.parse(os.path.join(xml_file))
         root = tree.getroot()
         for member in root.findall('object'):
                 value = (root.find('filename').text,
@@ -50,10 +50,10 @@ def main(path,xml_df):
     print('Successfully converted xml to csv.')
 
 
-##path="/Users/james/Desktop/COMP_343/machine_learning_project/data/raw_data/test_annotations"
-##img_path= "/Users/james/Desktop/COMP_343/machine_learning_project/data/raw_data/test_images"
-##xml_df = xml_to_csv(path,img_path)
-##print(xml_df)
+# path="data/raw_data/test_annotations"
+# img_path= "data/raw_data/test_images"
+# xml_df = xml_to_csv(path,img_path)
+# print(xml_df)
 ##csv_path="/Users/james/Desktop/COMP_343/machine_learning_project/test_raw_dataframe.csv"
 ##main(csv_path,xml_df)
 

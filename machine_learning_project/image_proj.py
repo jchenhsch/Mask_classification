@@ -111,7 +111,7 @@ def find_the_best_hyperparameter(train_ds,val_ds,batch_size_lst,dense_unit_lst,e
 
 ####################### train the CNN model ##############################
 #loading the data
-data_dir="/Users/james/Desktop/COMP_343/machine_learning_project/data/stratified_data/train_data"
+data_dir="data/stratified_data/train_data"
 
 
 # general parameter for image cropping and the model training
@@ -133,9 +133,9 @@ model=cnn_model_train(train_ds,val_ds,batch_size,dense_unit,epoch)
 
 
 #############################stratified data testing##############################
-dst_dir = "/Users/james/Desktop/COMP_343/machine_learning_project/data/stratified_data/test_data"
-src_dir_mask = "/Users/james/Desktop/COMP_343/machine_learning_project/data/stratified_data/full_data/with_mask"
-src_dir_without_mask = "/Users/james/Desktop/COMP_343/machine_learning_project/data/stratified_data/full_data/without_mask"
+dst_dir = "data/stratified_data/test_data"
+src_dir_mask = "data/stratified_data/full_data/with_mask"
+src_dir_without_mask = "data/stratified_data/full_data/without_mask"
 with_mask_limit=50
 without_mask_limit=50
 
@@ -180,8 +180,8 @@ print('\n')
 print("\n")
 print("####################### raw data testing ################")
 print("\n")
-path="/Users/james/Desktop/COMP_343/machine_learning_project/data/raw_data/test_annotations"
-img_path="/Users/james/Desktop/COMP_343/machine_learning_project/data/raw_data/test_images"
+path="data/raw_data/test_annotations"
+img_path="data/raw_data/test_images"
 
 #################### generating raw testing dataframe #######################
 xml_df=xml_to_csv(path,img_path)
@@ -216,4 +216,4 @@ print('\n')
 
 # Saving the Tensorflow model
 
-#model.save("/Users/james/Desktop/COMP_343/machine_learning_project/my_model")
+model.save("my_model/")
