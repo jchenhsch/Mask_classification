@@ -66,7 +66,9 @@ I found image classification as an extension of the course material. Since we on
 2. Come up with an additional batch_size test to find the better batch size for the model -- next step develop find the best hyperparameter to fine tune the model
 
 3. If both succeeded, try the live mask detection using the OpenCV module. -- solved in ver 1.3 (be careful with the color mode between tf.keras/cv2 image loading methods: tf.keras-->RGB default, cv2-->BGR default)
-
+   
+[Updated Oct.20th, 2023]
+4. Add web app to make the project more useful and applicable. // current ideas Flask, Py-env
 ### Updated Apr. 27th, 2023
 
 4. User interface, pyinstaller to make it executable and easy to use
