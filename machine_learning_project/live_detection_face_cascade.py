@@ -2,7 +2,6 @@ import cv2
 import tensorflow as tf
 import dlib
 from imutils import face_utils
-from image_load import input_img
 import numpy as np
 
 # live streaming face mask detection using face cascade
@@ -47,13 +46,18 @@ def live_detect_face_cascade(model_loc):
             # Display the frame with a label indicating mask or no mask
             label = 'Mask' if mask_prob > 0.5 else 'No Mask'
             cv2.putText(frame, label, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-            cv2.imshow('Mask Detection', frame)
+            # cv2.imshow('Mask Detection', frame)
+            _, buffer = cv2.imencode('.jpg', frame)
+            frame_bytes = buffer.tobytes()
+            bin_msg= (b'--frame\r\n'
+                    b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+            yield bin_msg
         if cv2.waitKey(1) & 0xFF == ord('q'):
             cap.release()
             cv2.destroyAllWindows()
             break
     
-if __name__:
+# if __name__:
 
-    model_loc = "my_model/"
-    live_detect_face_cascade(model_loc)
+#     model_loc = "my_model/"
+#     live_detect_face_cascade(model_loc)

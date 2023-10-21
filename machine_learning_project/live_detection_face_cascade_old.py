@@ -4,11 +4,9 @@ import dlib
 from imutils import face_utils
 import numpy as np
 
-# live streaming face mask detection using dlib
-# slow but accurate in face detection
-
-def live_detect_dlib(model_loc):
-    print(model_loc)
+# live streaming face mask detection using face cascade
+# quick but inaccurate in face detection
+def live_detect_face_cascade(model_loc):
 
     model = tf.keras.models.load_model(model_loc)
 
@@ -19,13 +17,11 @@ def live_detect_dlib(model_loc):
         # Capture frame-by-frame
         ret, frame = cap.read()
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        face_detect = dlib.get_frontal_face_detector()
+        face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+        faces = face_cascade.detectMultiScale(gray, 1.1, 4)
         
-        
-        rects = face_detect(gray, 2)
-        for (i, rect) in enumerate(rects):
-            (x, y, w, h) = face_utils.rect_to_bb(rect)
-            cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 255, 255), 2)
+        for (x, y, w, h) in faces:
+            cv2.rectangle(frame, (x,y),(x + w,y + h), (0, 255, 0), 2)
             face = frame[y:y + h, x:x + w]
 
             # Resize frame to match model input size (if necessary)
@@ -37,7 +33,6 @@ def live_detect_dlib(model_loc):
                 image_array=np.expand_dims(image_array,axis=0)
             except:
                 print("no face in frame")
-                continue
             #print(image_array)
             
             # Perform mask detection on the frame
@@ -51,27 +46,13 @@ def live_detect_dlib(model_loc):
             # Display the frame with a label indicating mask or no mask
             label = 'Mask' if mask_prob > 0.5 else 'No Mask'
             cv2.putText(frame, label, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-            # cv2.imshow('Mask Detection', frame)
-            _, buffer = cv2.imencode('.jpg', frame)
-            frame_bytes = buffer.tobytes()
-            bin_msg= (b'--frame\r\n'
-                    b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
-            
-            yield bin_msg
-
-        # Break loop if 'q' key is pressed
+            cv2.imshow('Mask Detection', frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             cap.release()
             cv2.destroyAllWindows()
             break
-            
-            
-            
     
-    
-    
+if __name__:
 
-# if __name__:
-    
-#     model_loc = "my_model/"
-#     live_dectect_dlib(model_loc)
+    model_loc = "my_model/"
+    live_detect_face_cascade(model_loc)

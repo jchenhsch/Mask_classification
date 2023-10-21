@@ -7,9 +7,7 @@ import numpy as np
 # live streaming face mask detection using dlib
 # slow but accurate in face detection
 
-def live_detect_dlib(model_loc):
-    print(model_loc)
-
+def live_dectect_dlib(model_loc):
     model = tf.keras.models.load_model(model_loc)
 
 
@@ -51,13 +49,7 @@ def live_detect_dlib(model_loc):
             # Display the frame with a label indicating mask or no mask
             label = 'Mask' if mask_prob > 0.5 else 'No Mask'
             cv2.putText(frame, label, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-            # cv2.imshow('Mask Detection', frame)
-            _, buffer = cv2.imencode('.jpg', frame)
-            frame_bytes = buffer.tobytes()
-            bin_msg= (b'--frame\r\n'
-                    b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
-            
-            yield bin_msg
+            cv2.imshow('Mask Detection', frame)
 
         # Break loop if 'q' key is pressed
         if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -69,9 +61,9 @@ def live_detect_dlib(model_loc):
             
     
     
-    
+    return mask_prob
 
-# if __name__:
+if __name__:
     
-#     model_loc = "my_model/"
-#     live_dectect_dlib(model_loc)
+    model_loc = "my_model/"
+    live_dectect_dlib(model_loc)

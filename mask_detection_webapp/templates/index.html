@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mask Detection</title>
+</head>
+<body>
+    <h1>Mask Detection</h1>
+    <button onclick="startMaskDetection()">Start Mask Detection</button>
+    <button onclick="stopMaskDetection()">Stop Mask Detection</button>
+    <br>
+    <img id="video-feed" style="width:50%; height:auto;">
+    <script>
+        var video = document.getElementById('video-feed');
+        var started = false;
+
+        function startMaskDetection() {
+            if (!started) {
+                fetch('/start');
+                video.src = "/video_feed";
+                started = true;
+            }
+        }
+
+        function stopMaskDetection() {
+            if (started) {
+                fetch('/stop');
+                video.src = "";
+                started = false;
+            }
+        }
+    </script>
+</body>
+</html>
