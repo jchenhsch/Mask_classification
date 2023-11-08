@@ -26,7 +26,7 @@ def img_data_splt(img_height,img_width,batch_size,data_dir):
     class_names=["with_mask","without_mask"],
     validation_split=0.2,
     subset="training",
-    seed=123,
+    seed=1,
     image_size=(img_height, img_width),
     batch_size=batch_size)
 
@@ -35,7 +35,7 @@ def img_data_splt(img_height,img_width,batch_size,data_dir):
     class_names=["with_mask","without_mask"],
     validation_split=0.2,
     subset="validation",
-    seed=123,
+    seed=1,
     image_size=(img_height, img_width),
     batch_size=batch_size)
 
@@ -64,8 +64,8 @@ def cnn_model_train(train_ds,val_ds,batch_size,dense_unit,epoch):
     tf.keras.layers.Rescaling(1./255),
     #tf.keras.layers.Conv2D(35, 3, activation='relu'),
     #tf.keras.layers.MaxPooling2D(),
-    #tf.keras.layers.Conv2D(35, 3, activation='relu'),
-    #tf.keras.layers.MaxPooling2D(),
+    # tf.keras.layers.Conv2D(35, 3, activation='relu'),
+    # tf.keras.layers.MaxPooling2D(),
     tf.keras.layers.Conv2D(batch_size, 3, activation='relu'),
     tf.keras.layers.MaxPooling2D(),
     tf.keras.layers.Dropout(0.2),

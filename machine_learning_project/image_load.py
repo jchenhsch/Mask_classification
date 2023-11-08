@@ -19,8 +19,8 @@ def input_img(path):
     color_mode='rgb',
     target_size=(400,400),
     interpolation='nearest')
-    #image_tensor=tf.keras.preprocessing.image.smart_resize(image,(400,400),interpolation='bilinear')
-    # image=tf.image.per_image_standardization(image).numpy()
+    image=tf.keras.preprocessing.image.smart_resize(image,(400,400),interpolation='bilinear')
+    # image=tf.image.per_image_standardization(image_tensor).numpy()
     image_array = tf.keras.utils.img_to_array(image)
     image_array=tf.expand_dims(image_array,0)
     

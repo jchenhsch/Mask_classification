@@ -47,7 +47,7 @@ def live_dectect_dlib(model_loc):
             print(mask_prob)
             
             # Display the frame with a label indicating mask or no mask
-            label = 'Mask' if mask_prob > 0.5 else 'No Mask'
+            label = 'No Mask' if mask_prob > 0.5 else 'Mask'
             cv2.putText(frame, label, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
             cv2.imshow('Mask Detection', frame)
 
@@ -63,7 +63,7 @@ def live_dectect_dlib(model_loc):
     
     return mask_prob
 
-if __name__:
+if __name__ == "__main__":
     
     model_loc = "my_model/"
     live_dectect_dlib(model_loc)
