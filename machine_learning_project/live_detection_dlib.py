@@ -16,6 +16,10 @@ def live_detect_dlib(model_loc):
     cap = cv2.VideoCapture(0)
 
     while True:
+        with open('../mask_detection_webapp/run_flag.txt', 'r') as file:
+            if file.read().strip() == 'False':
+                #yield b'The model has been stopped'
+                break
         # Capture frame-by-frame
         ret, frame = cap.read()
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -58,20 +62,5 @@ def live_detect_dlib(model_loc):
                     b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
             
             yield bin_msg
-
-        # Break loop if 'q' key is pressed
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            cap.release()
-            cv2.destroyAllWindows()
-            break
-            
-            
-            
-    
-    
-    
-
-# if __name__:
-    
-#     model_loc = "my_model/"
-#     live_dectect_dlib(model_loc)
+    cap.release()  # Make sure to release the camera resource
+    cv2.destroyAllWindows()

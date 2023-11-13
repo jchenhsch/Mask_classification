@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mask Detection</title>
+    <style>
+        body {
+            text-align: center; /* Center-align text */
+            font-family: Arial, sans-serif; /* Font style */
+        }
+        #container {
+            width: 80%;
+            margin: auto; /* Center-align the container */
+        }
+        button {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            padding: 10px 20px; /* Padding around text */
+            margin: 10px 0; /* Margin around buttons */
+            border: none; /* Remove border */
+            cursor: pointer; /* Pointer cursor on hover */
+            border-radius: 8px; /* Rounded corners */
+        }
+        button:hover {
+            background-color: #45a049; /* Darker shade of green on hover */
+        }
+        img {
+            width: 50%; 
+            height: auto;
+            display: block; /* Allows margin auto to work */
+            margin: 20px auto; /* Center-align the image and add space around it */
+        }
+    </style>
 </head>
 <body>
-    <h1>Mask Detection</h1>
+    <p>Mask Detection</p>
     <button onclick="startMaskDetection()">Start Mask Detection</button>
     <button onclick="stopMaskDetection()">Stop Mask Detection</button>
     <br>
@@ -17,19 +45,31 @@
 
         function startMaskDetection() {
             if (!started) {
-                fetch('/start');
-                video.src = "/video_feed";
                 started = true;
+                fetch('/start')
+                    .then(response => response.text())  // Convert the response to text
+                    .then(text => {
+                        alert(text); 
+                        video.src = '/video_feed'; // Show the alert with the response text
+                    })
+                    .catch(err => console.error('Error:', err));
             }
+            
         }
 
         function stopMaskDetection() {
             if (started) {
-                fetch('/stop');
-                video.src = "";
                 started = false;
+                fetch('/stop')
+                    .then(response => response.text())  // Convert the response to text
+                    .then(text => {
+                        video.src = "";                        
+                        alert(text);  // Show the alert with the response text
+                    })
+                    .catch(err => console.error('Error:', err));
             }
         }
+
     </script>
 </body>
 </html>

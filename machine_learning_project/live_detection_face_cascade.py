@@ -9,11 +9,13 @@ import numpy as np
 def live_detect_face_cascade(model_loc):
 
     model = tf.keras.models.load_model(model_loc)
-
-
     cap = cv2.VideoCapture(0)
 
     while True:
+        with open('../mask_detection_webapp/run_flag.txt', 'r') as file:
+            if file.read().strip() == 'False':
+                #yield "the model has been stopped"
+                break
         # Capture frame-by-frame
         ret, frame = cap.read()
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -52,12 +54,3 @@ def live_detect_face_cascade(model_loc):
             bin_msg= (b'--frame\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
             yield bin_msg
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            cap.release()
-            cv2.destroyAllWindows()
-            break
-    
-# if __name__:
-
-#     model_loc = "my_model/"
-#     live_detect_face_cascade(model_loc)
