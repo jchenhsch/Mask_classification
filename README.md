@@ -97,6 +97,11 @@ for m chip mac, may need to install miniforge for conda (https://github.com/cond
     pip install tensorflow-metal
     
     ```
+  ### Updated Apr. 7th 2024
+  remove web app logic from this repo, if you need to check out app (deployment) logic of this model
+  pleace check out https://github.com/jchenhsch/checkmymask.
+  This repo is updated by saving models as .keras to keep up with the TensorFlow 16.2. For Tensorflow 16 no need the steps
+  above to be able to run in m chip mac.
 
 ## Authors
 Jiaxuan Chen
